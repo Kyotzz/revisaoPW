@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            h1{
+                color:red;
+            }
+            .capitulo{
+                color:blue;
+            }
+            p{
+                background-color: yellow;
+            }
+            #segundo{
+                color:green;
+            }
+            .c{
+                background-color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Questão 01</h3>
+        <h1>Título</h1>
+        <h2 class="capitulo">Capítulo</h2>
+        <p>Primeiro parágrafo</p>
+        <p id="segundo">Segundo parágrafo</p>
+        <p>Terceiro parágrafo</p>
+
+        <h3>Questão 02</h3>
+        <span>(F)</span><br>
+        <span>(V)</span><br>
+        <span>(V)</span><br>
+        <span>(V)</span><br>
+        <span>(F)</span><br>
+
+        <h3>Questão 03</h3>
+        <span>1)O atributo action define o local (uma URL) em que os dados recolhidos do formulário devem ser enviados. Já o atributo method 
+            define qual o método HTTP para enviar os dados (ele pode ser "GET" ou "POST")</span><br>
+        <span>2)"get(envia os dados através do navegador, ficando no histórico do navegador, expõe os dados do usuário, sem segurança)" e "post(esconde
+             os dados do usuário e manda diretamente pela rede, os dados não ficam visíveis e possui mais segurança)"</span><br>
+        <span>3)A tag "input type="text"</span><br>
+        <span>4)Colocando um "name" igual a todos e atribuindo valores diferentes para cada caixa através do atributo "value";"input type=radio"</span><br>
+        <span>5)Pela tag "for" dentro do label, sendo digitado o mesmo valor no id dentro do input</span><br>
+        <span>6)fieldset - Agrupa os itens de um formulário em um mesmo bloco; legend - Seria o título exibido na caixa de agrupamento </span><br>
+        <span>7)serve para que o botão envie os dados do formulário</span><br>
+        <span>8)Limpa todos os dados escritos no formulário</span><br>
+        <span>9)Com a tag "textarea"</span><br>
+        <span>10)</span>
+        <form>
+            <select name="curso">
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="javascript">JavaScript</option>
+            </select>
+        </form>
+
+        <h3>Questão 04</h3>
+        <h1>Conversor de Temperatura</h1>
+        <h2>Fahrenheit - Celsius</h2>
+        <label for="fahrenheit">Fahrenheit</label>
+        <input type="text" id="fahrenheit" name="fahrenheit">
+        <p class="c">Celsius: <span id="c"></span></p>
+        <p class="c">Situação: <span id="situacao"></span></p>
+        <br>
+        <input type="submit" onclick="calcularFC()">
+    </body>
+    <script>
+        function calcularFC(){
+            let f = parseFloat(document.getElementById("fahrenheit").value);
+            let c = (f-32)/1.8;
+            let situacao;
+            event.preventDefault;
+
+            document.getElementById("c").innerHTML = c.toFixed(1);
+
+            if(c >=41){
+                situacao = "Hipetermia";
+                document.getElementById("situacao").style.color = "red";
+            }else if(c >=39.6 && c<41){
+                situacao = "Febre alta";
+                document.getElementById("situacao").style.color = "orange";
+            }else if(c>=37.6 && c<=39.5){
+                situacao = "Febre";
+                document.getElementById("situacao").style.color = "yellow";
+            }else if(c>=36 && c<=37.5){
+                situacao = "Normal";
+                document.getElementById("situacao").style.color = "green";
+            }else{
+                situacao = "Hipotermia";
+                document.getElementById("situacao").style.color = "blue";
+            }
+            document.getElementById("situacao").innerHTML = situacao;
+        }
+    </script>
+</html>
